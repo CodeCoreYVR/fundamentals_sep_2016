@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bill Splitter</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h1>Bill Splitter</h1>
+    <form method='POST' action='/split'>
+      <div class='form-group'>
+        <label for='amount'>Amount</label>
+        <input type='text' class='form-control' name='amount' id='amount' placeholder="100.15" value='<%= params[:amount] %>'>
+      </div>
+      <div class='form-group'>
+        <label for='tax'>Tax</label>
+        <input type='text' class='form-control' name='tax' id='tax' placeholder="10.15" value='<%= params[:tax] %>'>
+      </div>
+      <div class='form-group'>
+        <label for='tip'>Tip</label>
+        <input type='text' class='form-control' name='tip' id='tip' placeholder="10.15" value='<%= params[:tip] %>'>
+      </div>
+      <div class='form-group'>
+        <label for='number-of-people'>Number Of People</label>
+        <input type='text' class='form-control' name='number_of_people' id='number-of-people' placeholder="10.15" value='<%= params[:number_of_people] %>'>
+      </div>
+      <input type='submit' class='btn btn-primary'>
+    </form>
+    <% if @person_amount %>
+      Each person should pay: <%= @person_amount.round(2) %>
+    <% end %>
+  </body>
+</html>
